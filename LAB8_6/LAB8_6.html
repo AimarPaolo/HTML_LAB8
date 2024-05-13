@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Esercizio 8.6</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Paolo Aimar">
+        <script>
+            function validateForm(f1){
+                let nome = document.getElementById(f1).nome.value;
+                let cognome = document.getElementById(f1).cognome.value;
+                let username = document.getElementById(f1).username.value;
+                let password = document.getElementById(f1).password.value;
+                let email = document.getElementById(f1).email.value;
+                let regNomeCognome = /^[A-Z][\sA-Za-z]{0,29}$/;
+                //in questo caso controllo che la prima lettera sia maiuscola e quelle successive siano minuscole
+                let regUsername = /^[A-Za-z\d\-+.]{6,20}$/;
+                let regPassword = /^(?=.*\d.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z0-9@!#$%^&*()\-+=]{8,16}$/;
+                let regEmail = /^[A-Za-z0-9\-_]+(\.[A-Za-z0-9\-_]+)*@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)*(\.[a-z]{2,6})$/;
+                let campiMancanti="";
+
+                    if( nome=="" )
+                {    
+                    campiMancanti+="nome\n";
+                }
+                
+                if( !regNomeCognome.test(nome) && nome!="" )
+                {
+                    alert("Formato nome non valido! Deve iniziare con una lettera maiuscola, contenere solo lettere o spazi e non deve superare i 30 caratteri");
+                    return false;
+                }
+                
+                    if( cognome=="" )
+                {
+                   campiMancanti+="cognome\n";
+                } 
+
+                if( !regNomeCognome.test(cognome) && cognome!="")
+                {
+                    alert("Formato cognome non valido!  Deve iniziare con una lettera maiuscola, contenere solo lettere o spazi e non deve superare i 30 caratteri");
+                    return false;
+                }
+                
+                    if( username=="" )
+                {
+                    campiMancanti+="username\n";
+                }
+                 if( !regUsername.test(username) && username!="" )
+                {
+                    alert("Formato username non valido! Deve contenere minimo 6 caratteri e massimo 20 caratteri. I caratteri ammissibili sono quelli alfanumerici, il punto, il '+' ed il '-'");
+                    return false;
+                }
+                
+                    if( password=="" )
+                {
+                    campiMancanti+="password\n";
+                }
+                if( !regPassword.test(password) && password!="" )
+                {
+                    alert("La password inserita non rispetta gli standard di sicurezza! Deve contenere minimo 8 e massimo 16 caratteri, scelti tra quelli alfanumerici, e deve contenere almeno due cifre, una lettera maiuscola e una minuscola");
+                    return false;
+                }
+                
+                    if( email=="" )
+                {
+                    campiMancanti+="email\n";
+                }
+                 if( !regEmail.test(email) && email!="")
+                {
+                    alert("Formato e-mail non valido!");
+                    return false;
+                }
+                if(campiMancanti!=""){
+                alert("Non hai inserito i seguenti campi: \n"+campiMancanti);
+                    return false;
+                  }
+                
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Inserire i dati dell'utente per accedere</h1>
+        <form action="LAB8_6.php" method="POST" id="form1" name="form1" onsubmit="return validateForm('form1');">
+            <p>
+                Nome: <input type="text" id="nome" name="nome" placeholder="inserire il nome">
+            </p>
+            <p>
+                Cognome: <input type="text" id="cognome" name="cognome" placeholder="inserire il cognome">
+            </p>
+            <p>
+                Username: <input type="text" id="username" name="username" placeholder="inserire lo username">
+            </p>
+            <p>
+                Password: <input type="password" id="password" name="password" placeholder="inserire la password" maxlength="16" minlength="8">
+            </p>
+            <p>
+                Email: <input type="email" id="email" name="email" placeholder="inserire l'email">
+            </p>
+            <p>
+                <input type="submit" name="submit" id="submit">
+                <input type="reset" name="clear" id="clear">
+            </p>
+        </form>
+    </body>
+</html>
