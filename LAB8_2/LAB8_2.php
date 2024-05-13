@@ -8,7 +8,7 @@
     <body>
         <?php
             if($_REQUEST["numero1"] != "" && isset($_REQUEST["numero1"]) && $_REQUEST["numero2"] != "" && isset($_REQUEST["numero2"]) && $_REQUEST["btn"] != "" && isset($_REQUEST["btn"])){
-                $numero1 = $trim($_REQUEST["numero1"]); 
+                $numero1 = trim($_REQUEST["numero1"]); 
                 //utilizzando la funzione trim controllo che non ci siano degli spazi ai lati della stringa
                 $numero2 =trim($_REQUEST["numero2"]);
                 $operando = trim($_REQUEST["btn"]);

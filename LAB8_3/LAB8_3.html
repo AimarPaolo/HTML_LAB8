@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Esercizio 8.3</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Paolo Aimar">
+        <script>
+            function validateForm(f1){
+                let temperature = document.getElementById(f1).temperatura.value;
+                if(temperature != ""){
+                    let regexp_temp = /^(\+|-)[\d]{1,3}\.[\d]$/;
+                    if(regexp_temp.test(temperature)){
+                        return true;
+                    }else{
+                        window.alert("hai inserito la tempertatura ma nel formato sbagliato!!");
+                        return false;
+                    }
+                }else{
+                    window.alert("non è stata inserita la temperatura...");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Calcolare la temperatura dell'ambiente</h1>
+        <form action="LAB8_3.php" method="POST" id="form1" name="form1" onsubmit="return validateForm('form1');">
+            <p>
+                <input type="text" id="temperatura" name="temperatura" placeholder="inserire la temperatura">
+            </p>
+            <p>
+                <input type="submit" name="submit" id="submit">
+                <input type="reset" name="clear" id="clear">
+            </p>
+        </form>
+    </body>
+</html>
