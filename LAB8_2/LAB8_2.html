@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Esercizio 8.2</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Paolo Aimar">
+        <script>
+            function validateForm(f1){
+                let numero1 = document.getElementById(f1).numero1.value;
+                let numero2 = document.getElementById(f1).numero2.value;
+                let btn = document.getElementById(f1).btn.value;
+                
+                if(numero1 != "" && numero2 != "" && btn != "")
+                    return true;
+                else{
+                    window.alert("Non sono stati inseriti i valori, inseriscili correttamente e clicca di nuovo il tasto");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Calcolatrice PHP</h1>
+        <form action="LAB8_2.php" method="POST" id="form1" name="form1" onsubmit="return validateForm('form1');">
+            <p>
+                <input type="number" max="999" placeholder="inserire un numero" id="numero1" name="numero1">
+            </p>
+            <p>
+                <input type="number" max="999" placeholder="inserire un numero" id="numero2" name="numero2">
+            </p>
+            <p>selezionare il tipo di operazione</p>
+            <div>
+                <input type="radio" id="btn" name="btn" value="somma">+
+                <input type="radio" id="btn" name="btn" value="differenza">-
+                <input type="radio" id="btn" name="btn" value="prodotto">x
+                <input type="radio" id="btn" name="btn" value="divisione">/
+            </div>
+            <p>
+                <input type="submit" id="consegna" name="consegna">
+                <input type="reset" id="resetta" name="resetta">
+            </p>
+        </form>
+    </body>
+</html>
