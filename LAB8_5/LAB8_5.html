@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Esercizio 8.5</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Paolo Aimar">
+        <script>
+            function validateForm(f1){
+                let testo = document.getElementById(f1).areaditesto.value;
+                if(testo != ""){
+                    return true;
+                }else{
+                    window.alert("non è stata inserito nessun testo...");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Scrivere un testo che verr&agrave; stampato in maniera particolare</h1>
+        <form action="LAB8_5.php" method="POST" id="form1" name="form1" onsubmit="return validateForm('form1');">
+            <p>
+                <textarea name="areaditesto" id="areaditesto"></textarea>
+            </p>
+            <p>
+                <input type="submit" name="submit" id="submit">
+                <input type="reset" name="clear" id="clear">
+            </p>
+        </form>
+    </body>
+</html>
